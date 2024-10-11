@@ -1,10 +1,12 @@
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import Carousel from '@/components/Carousel';
 
 export default function Home() {
   return (
     <div className="container mx-auto px-4 py-8">
+      {<Carousel/>}
       <section className="mb-12">
         <h1 className="text-4xl font-bold mb-4">私たちの部活へようこそ！</h1>
         <p className="text-xl mb-6">ここでは、私たちの活動や成果を紹介しています。</p>
@@ -28,7 +30,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="mb-12">
+      {/* <section className="mb-12">
         <h2 className="text-3xl font-semibold mb-6">部活の写真</h2>
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           {[1, 2, 3, 4, 5, 6, 7, 8].map((i) => (
@@ -43,7 +45,7 @@ export default function Home() {
             </div>
           ))}
         </div>
-      </section>
+      </section> */}
     </div>
   );
 }
