@@ -14,7 +14,6 @@ import './styles.css';
 // import required modules
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 
-import Image from 'next/image';
 export default function Carousel() {
   return (
     <>
