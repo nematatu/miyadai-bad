@@ -1,0 +1,53 @@
+.hover-effect{
+    position:relative;
+}
+.hover-effect::after{
+    content:'';
+    position:absolute;
+    top:46px;
+    left:-2px;
+    width:0;
+    height:3px;
+    background-color: white;
+    transition:width 0.3s ease;
+}
+
+.hover-effect:hover::after{
+    width:103%;
+}
+
+.hover-effect-footer{
+    position:relative;
+}
+.hover-effect-footer::after{
+    content:'';
+    position:absolute;
+    top:30px;
+    left:-2px;
+    width:0;
+    height:3px;
+    background-color: white;
+    transition:width 0.3s ease;
+}
+
+.hover-effect-footer:hover::after{
+    width:103%;
+}
+/* 左右に斜め線(両端を丸く) */
+.fukidashi {
+    align-items: center; /* 線を上下中央 */
+    display: flex; /* 文字と線を横並び */
+    justify-content: center; /* 文字を中央寄せ */
+  }
+  .fukidashi::after {
+    background-color: #fee; /* 線の色 */
+    border-radius: 5px; /* 線の両端を丸く */
+    content: "";
+    height: 3px; /* 線の高さ */
+    width: 40px; /* 線の長さ */
+  }
+  .fukidashi::after {
+    margin-left: 10px; /* 文字との余白 */
+    margin-right: 10px;
+    transform: rotate(-60deg); /* 傾ける */
+  }
