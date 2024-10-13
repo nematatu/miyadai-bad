@@ -51,6 +51,7 @@
     "eslint": "8.49.0",
     "eslint-config-next": "13.5.1",
     "fs": "^0.0.1-security",
+    "html-react-parser": "^5.1.18",
     "input-otp": "^1.2.4",
     "lucide-react": "^0.446.0",
     "microcms-js-sdk": "^3.1.2",
