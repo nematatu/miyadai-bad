@@ -7,6 +7,7 @@ import Footer from '@/components/Footer';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://miyadai-bad.vercel.app/'),
 	openGraph: {
 		title: '宮崎大学 バドミントン部',
 		description: '宮崎大学バドミントン部の公式ホームページです。',
