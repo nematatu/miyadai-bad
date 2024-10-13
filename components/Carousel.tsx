@@ -10,7 +10,7 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import '@/app/styles/carousel.css';
-
+import Image from 'next/image';
 // import required modules
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 
@@ -31,17 +31,17 @@ export default function Carousel() {
         modules={[Autoplay, Pagination, Navigation]}
         className="mySwiper"
       >
-        <SwiperSlide><img src='genki_smash.jpeg'/></SwiperSlide>
-        <SwiperSlide><img src='hitatch.jpeg' /></SwiperSlide>
-        <SwiperSlide><img src='kotomi_saito.JPG' /></SwiperSlide>
-        <SwiperSlide><img style={{objectPosition:'center'}} src='miyajima.JPG' /></SwiperSlide>
-        <SwiperSlide><img style={{objectPosition:'center'}} src='nobi.JPG' /></SwiperSlide>
-        <SwiperSlide><img src='ohanasi.jpeg' /></SwiperSlide>
-        <SwiperSlide><img style={{objectPosition:'center'}} src='oinori.JPG' /></SwiperSlide>
-        <SwiperSlide><img style={{objectPosition:'center'}} src='yuuhi.JPG' /></SwiperSlide>
-        <SwiperSlide><img style={{objectPosition:'center'}} src='yuuta_saito.JPG' /></SwiperSlide>
+        <SwiperSlide><Image width={2000} height={2000} alt="image" src='genki_smash.jpeg'/></SwiperSlide>
+        <SwiperSlide><Image width={2000} height={2000} alt="image" src='hitatch.jpeg' /></SwiperSlide>
+        <SwiperSlide><Image width={2000} height={2000} alt="image" src='kotomi_saito.JPG' /></SwiperSlide>
+        <SwiperSlide><Image width={2000} height={2000} alt="image" style={{objectPosition:'center'}} src='miyajima.JPG' /></SwiperSlide>
+        <SwiperSlide><Image width={2000} height={2000} alt="image" style={{objectPosition:'center'}} src='nobi.JPG' /></SwiperSlide>
+        <SwiperSlide><Image width={2000} height={2000} alt="image" src='ohanasi.jpeg' /></SwiperSlide>
+        <SwiperSlide><Image width={2000} height={2000} alt="image" style={{objectPosition:'center'}} src='oinori.JPG' /></SwiperSlide>
+        <SwiperSlide><Image width={2000} height={2000} alt="image" style={{objectPosition:'center'}} src='yuuhi.JPG' /></SwiperSlide>
+        <SwiperSlide><Image width={2000} height={2000} alt="image" style={{objectPosition:'center'}} src='yuuta_saito.JPG' /></SwiperSlide>
         <SwiperSlide>
-          <img src="/genki.JPG" alt="genki Image"/>
+          <Image width={2000} height={2000} alt="image" src="/genki.JPG"/>
         </SwiperSlide>
       </Swiper>
     </>
