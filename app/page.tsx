@@ -8,9 +8,6 @@ export default function Home() {
     <div className="container mx-auto px-4 py-8">
       {<Carousel/>}
       <section className="mb-12">
-        <h1 className="text-4xl font-bold mb-4">宮崎大学 バドミントン部です。</h1>
-        <p className="text-xl mb-6">ここでは、私たちの活動や成果を紹介しています。</p>
-        <Button>活動予定を見る</Button>
       </section>
 
       <section className="mb-12">

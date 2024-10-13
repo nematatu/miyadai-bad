@@ -51,3 +51,7 @@
     margin-right: 10px;
     transform: rotate(-60deg); /* 傾ける */
   }
+
+.font-size{
+    font-size: 1.0rem;
+}

@@ -21,7 +21,7 @@ export default function Header() {
                 <p style={{ display: 'inline-block' }}>宮崎大学 バドミントン部</p>
                 
                 <div className='fukidashi invisible lg:visible'/>
-                <i className='hidden lg:inline-block'>Univercity of Miyazaki Badminton Club</i>
+                <i className='hidden font-size lg:inline-block'>Univercity of Miyazaki Badminton Club</i>
               </div>
             </Link>
           </div>
