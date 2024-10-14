@@ -1,4 +1,3 @@
-'use client'
 import Link from "next/link";
 import { getList } from "@/libs/microcms";
 import { createClient } from "microcms-js-sdk";
