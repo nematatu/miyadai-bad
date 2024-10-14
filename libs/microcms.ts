@@ -45,7 +45,13 @@ export const getList = async (domain: string) => {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
         const data = await response.json();
-        return data;
+        const japaneseDomain=domain==='columns'?'コラム':'試合結果';
+        const updateData=data.contents.map((item:any)=>({
+            ...item,
+            domainJ:japaneseDomain,
+            domain:domain
+        }))
+        return updateData;
     } catch (error) {
         console.error('Error fetching list:', error);
         throw error;
@@ -56,10 +62,11 @@ export const getAllLists = async () => {
     try {
         const columnsData = await getList('columns');
         const resultsData = await getList('results');
-        const AllLists = [...columnsData.contents, ...resultsData.contents];
+        const AllLists = [...columnsData, ...resultsData];
         AllLists.sort((a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime());
-        console.log("All lists:", AllLists);
-        return AllLists;
+
+        const top6Lists=AllLists.slice(0,6);
+        return top6Lists;
     } catch (error) {
         console.error('Error getting all lists:', error);
         throw error;

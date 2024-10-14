@@ -3,7 +3,7 @@ import { getDetail, getList } from "@/libs/microcms";
 
 const domain = 'columns'
 export async function generateStaticParams() {
-    const { contents } = await getList(domain);
+    const  contents  = await getList(domain);
 
     const paths = contents.map((post: any) => {
         return {

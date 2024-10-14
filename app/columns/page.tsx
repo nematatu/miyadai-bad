@@ -5,7 +5,7 @@ import { createClient } from "microcms-js-sdk";
 const domain = 'columns'
 const revalidate=10;
 export default async function StaticPage() {
-  const { contents } = await getList(domain);
+  const contents  = await getList(domain);
 
   // ページの生成された時間を取得
   const time = new Date().toLocaleString();

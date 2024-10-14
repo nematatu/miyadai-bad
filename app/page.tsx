@@ -1,12 +1,13 @@
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
+import { Box, Badge } from '@radix-ui/themes';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import Carousel from '@/components/Carousel';
 import Link from 'next/link';
 import { getAllLists } from '@/libs/microcms';
 
 export default async function Home() {
-const allLists =await getAllLists();
+  const allLists = await getAllLists();
 
   return (
     <div className="container mx-auto px-4 py-8">
@@ -15,29 +16,29 @@ const allLists =await getAllLists();
       </section>
 
       <section className="mb-12">
-        <h2 className="text-3xl font-semibold mb-6"><Link href="/news">最新情報</Link></h2>
-        {/* <ul>
+        <h2 className="text-3xl  pb-4 border-b border-blue-500 text-center font-semibold m-8">
+          <Link href="/news">最新情報</Link>
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
           {allLists.map((list) => (
-            <li key={list.id}>
-              <h3>{list.title}</h3>
-              <p>{new Date(list.publishedAt).toLocaleDateString()}</p>
-            </li>
-          ))}
-        </ul> */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {[1, 2, 3].map((i) => (
-            <Card key={i}>
-              <CardHeader>
-                <CardTitle>活動報告 {i}</CardTitle>
-                <CardDescription>2023年5月{i}日</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <p>先日の大会で素晴らしい成績を収めました！詳細はこちら...</p>
-              </CardContent>
-            </Card>
+            <Link href={`/${list.domain}/${list.id}`} >
+              <Card className="transition transform hover:shadow-lg hover:border-blue-500 hover:border-2 hover:scale-105" key={list.id}>
+                <CardHeader>
+                  <CardTitle className='border-b border-blue-500 mb-1 pb-2'>{list.title}</CardTitle>
+                  <div className='flex justify-between'>
+                    <CardDescription>{list.publishedAt.split('T')[0]}</CardDescription>
+                    <Badge variant='solid' color="indigo">{list.domainJ}</Badge>
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  {/* <div className="prose text-gray-700 mx-auto" dangerouslySetInnerHTML={{ __html: list.content }}
+            /> */}
+                </CardContent>
+              </Card>
+            </Link>
           ))}
         </div>
-      </section>
+      </section >
 
       {/* <section className="mb-12">
         <h2 className="text-3xl font-semibold mb-6">部活の写真</h2>
@@ -55,6 +56,6 @@ const allLists =await getAllLists();
           ))}
         </div>
       </section> */}
-    </div>
+    </div >
   );
 }

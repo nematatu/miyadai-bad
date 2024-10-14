@@ -13,8 +13,8 @@ export default function Footer() {
             </Link>
             <div className='flex flex-col sm:flex-row items-center sm:items-end space-y-2 sm:space-y-0'>
               <span className="text-sm sm:text-base">お問い合わせ:</span>
-              <Link className='ml-0 sm:ml-2 text-blue-500 text-sm sm:text-base break-all' href="https://www.instagram.com/miyazakidaibadminton/">
-                https://www.instagram.com/miyazakidaibadminton/
+              <Link rel="noopener noreferrer" target='_blank' className='ml-0 sm:ml-2 text-blue-500 text-sm sm:text-base break-all' href="https://www.instagram.com/miyazakidaibadominton/">
+              https://www.instagram.com/miyazakidaibadominton/
               </Link>
             </div>
           </div>
