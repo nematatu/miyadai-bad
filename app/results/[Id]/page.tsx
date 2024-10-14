@@ -20,12 +20,18 @@ export default async function StaticDetailPage({
 }: {
     params: { Id: string };
 }) {
-    const result = await getDetail(domain,Id);
-
-    // ページの生成された時間を取得
+    let result;
+    try {
+        result = await getDetail(domain, Id);
+    } catch (error) {
+        console.error('Error fetching detail:', error);
+        notFound();
+        return;
+    }
 
     if (!result) {
         notFound();
+        return;
     }
 
     return (
