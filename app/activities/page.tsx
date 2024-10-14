@@ -9,7 +9,7 @@ export default function ActivitiesPage() {
       <h1 className="text-4xl font-bold mb-8 text-center text-gray-800">部活動スケジュール</h1>
       <div className="grid md:grid-cols-2 gap-8">
         <Card className="overflow-hidden shadow-lg transition-all duration-300 hover:shadow-xl">
-          <CardHeader className="bg-gray-800 text-white">
+          <CardHeader className="bg-gradient-to-r from-gray-700 to-gray-800 text-white">
             <CardTitle className="flex items-center text-2xl">
               <CalendarDays className="mr-2 text-sky-300" />
               週間活動内容
@@ -20,7 +20,7 @@ export default function ActivitiesPage() {
           </CardContent>
         </Card>
         <Card className="overflow-hidden shadow-lg transition-all duration-300 hover:shadow-xl">
-          <CardHeader className="bg-gray-800 text-white">
+          <CardHeader className="bg-gradient-to-r from-gray-700 to-gray-800 text-white">
             <CardTitle className="flex items-center text-2xl">
               <CalendarRange className="mr-2 text-sky-300" />
               年間活動予定

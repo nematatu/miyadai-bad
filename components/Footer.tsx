@@ -1,6 +1,9 @@
 import Link from 'next/link';
 import { notoSerifJP } from '@/font/font'
 import '@/app/styles/Header.css'
+import { Button } from "@/components/ui/button"
+import { Instagram } from "lucide-react"
+
 export default function Footer() {
   return (
     <footer className="bg-gray-950 text-gray-300">
@@ -13,8 +16,11 @@ export default function Footer() {
             </Link>
             <div className='flex flex-col sm:flex-row items-center sm:items-end space-y-2 sm:space-y-0'>
               <span className="text-sm sm:text-base">お問い合わせ:</span>
-              <Link rel="noopener noreferrer" target='_blank' className='ml-0 sm:ml-2 text-blue-500 text-sm sm:text-base break-all' href="https://www.instagram.com/miyazakidaibadominton/">
-              https://www.instagram.com/miyazakidaibadominton/
+              <Link className='m-4' href="https://www.instagram.com/miyazakidaibadominton" target="_blank" rel="noopener noreferrer">
+                <Button  className=" bg-indigo-800 hover:bg-blue-800 text-white">
+                  <Instagram className="mr-2 h-5 w-5" />
+                  Instagramでメッセージを送る
+                </Button>
               </Link>
             </div>
           </div>
