@@ -2,15 +2,16 @@ import Link from "next/link";
 import { getList } from "@/libs/microcms";
 import { createClient } from "microcms-js-sdk";
 
-const domain = 'results'
+export const revalidate=10;
+const domain = 'results';
 export default async function StaticPage() {
     // const res = await fetch('https://', {
     //     next: { revalidate: 10 },
     //   });
-    const response=await fetch('https://miyadai-bad.vercel.app/api/works',{
-        next: { revalidate: 10 },
-    })
-  const { contents } = await response.json();
+    // const response=await fetch('https://miyadai-bad.vercel.app/api/works',{
+    //     next: { revalidate: 10 },
+    // })
+  const { contents } = await getList(domain);
 
   if (!contents || contents.length === 0) {
     return <h1>No contents</h1>;
