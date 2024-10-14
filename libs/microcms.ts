@@ -12,6 +12,8 @@ export type Blog = {
     eyecatch?: MicroCMSImage;
 } & MicroCMSDate;
 
+
+
 if (!process.env.MICROCMS_SERVICE_DOMAIN) {
     throw new Error("MICROCMS_SERVICE_DOMAIN is required");
 }
@@ -26,6 +28,8 @@ export const client = createClient({
 });
 
 export const getList = async (domain: string) => {
+    console.log(process.env.MICROCMS_SERVICE_DOMAIN);
+    console.log(process.env.MICROCMS_API_KEY);
     const endpoint = `https://${process.env.MICROCMS_SERVICE_DOMAIN}.microcms.io/api/v1/${domain}`;
     console.log(`Fetching from endpoint: ${endpoint}`);
     try {
