@@ -39,7 +39,6 @@ export const getList = async (domain: string) => {
                 'X-MICROCMS-API-KEY': process.env.MICROCMS_API_KEY || '',
                 'Content-Type': 'application/json'
             },
-            cache: 'no-store'
         });
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
@@ -83,7 +82,6 @@ export const getDetail = async (domain: string, contentId: string) => {
                 'X-MICROCMS-API-KEY': process.env.MICROCMS_API_KEY || '',
                 'Content-Type': 'application/json'
             },
-            cache: 'no-store'
         });
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
