@@ -3,10 +3,10 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import Carousel from '@/components/Carousel';
 import Link from 'next/link';
-// import { getAllLists } from '@/libs/microcms';
+import { getAllLists } from '@/libs/microcms';
 
 export default async function Home() {
-  // const allLists =await getAllLists();
+const allLists =await getAllLists();
 
   return (
     <div className="container mx-auto px-4 py-8">
