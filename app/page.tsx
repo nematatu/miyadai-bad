@@ -22,7 +22,7 @@ export default async function Home() {
           {allLists.map((list) => (
             <Link key={list.id} href={`/${list.domain}/${list.id}`} >
               
-              <Card className="transition transform hover:shadow-lg hover:border-blue-500 hover:border-2 ">
+              <Card className="group transition  hover:shadow-lg hover:border-blue-500 hover:border-1 ">
                 <CardHeader>
                   <CardTitle className='border-b border-blue-500 mb-1 pb-2'>{list.title}</CardTitle>
                   <div className='flex justify-between'>
@@ -35,7 +35,10 @@ export default async function Home() {
                   </div>
                 </CardHeader>
                 <CardContent>
-                  <Image style={{objectFit:'cover',width:'500px',height:'200px' }} src={list.eyecatch?.url|| '/shuttle.jpeg'} alt={list.title} width={500} height={300} />
+                  <div className="overflow-hidden  ">
+                  <Image className="duration-300 group-hover:scale-105"
+                   style={{objectFit:'cover',width:'500px',height:'200px' }} src={list.eyecatch?.url|| '/shuttle.jpeg'} alt={list.title} width={500} height={300} />
+                   </div>
                 </CardContent>
               </Card>
               

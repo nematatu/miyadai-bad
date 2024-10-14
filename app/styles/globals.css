@@ -79,7 +79,6 @@
     @apply bg-background text-foreground;
   }
 }
-
-.shuttle{
-  object-fit: cover;
+.test{
+  overflow:hidden
 }
