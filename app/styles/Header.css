@@ -47,8 +47,8 @@
     width: 40px; /* 線の長さ */
   }
   .fukidashi::after {
-    margin-left: 10px; /* 文字との余白 */
-    margin-right: 10px;
+    margin-left: 4px; /* 文字との余白 */
+    margin-right: 1px;
     transform: rotate(-60deg); /* 傾ける */
   }
 

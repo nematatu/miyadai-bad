@@ -30,8 +30,9 @@ export default function Footer() {
         <div className='flex flex-col sm:flex-row justify-between items-center sm:items-start space-y-4 sm:space-y-0'>
           <ul className='flex flex-wrap justify-center sm:justify-start gap-4 sm:gap-8 sm:pt-8'>
             <li><Link href="/" className="text-sm sm:text-md p-1 sm:p-2 hover-effect-footer">ホーム</Link></li>
+            <li><Link href="/news" className="text-sm sm:text-md p-1 sm:p-2 hover-effect-footer">最新情報</Link></li>
             <li><Link href="/activities" className="text-sm sm:text-md p-1 sm:p-2 hover-effect-footer">活動内容</Link></li>
-            <li><Link href="/result" className="text-sm sm:text-md p-1 sm:p-2 hover-effect-footer">大会の結果</Link></li>
+            <li><Link href="/results" className="text-sm sm:text-md p-1 sm:p-2 hover-effect-footer">大会の結果</Link></li>
             <li><Link href="/album" className="text-sm sm:text-md p-1 sm:p-2 hover-effect-footer">アルバム</Link></li>
           </ul>
           <div className={`text-center sm:text-right mt-4 sm:pt-9`}>

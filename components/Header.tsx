@@ -16,10 +16,9 @@ export default function Header() {
       <div className="container mx-auto px-4 py-4">
         <div className="flex justify-between items-center">
           <div className=''>
-            <Link href="/" className={`${notoSerifJP.className} text-xl md:text-2xl font-bold`}>
+            <Link href="/" className={`${notoSerifJP.className}  md:text-2xl font-bold`}>
               <div className='flex'>
                 <p style={{ display: 'inline-block' }}>宮崎大学 バドミントン部</p>
-                
                 <div className='fukidashi invisible lg:visible'/>
                 <i className='hidden font-size lg:inline-block'>Univercity of Miyazaki Badminton Club</i>
               </div>
@@ -46,10 +45,10 @@ export default function Header() {
 function NavItems() {
   return (
     <ul className="flex flex-col md:flex-row items-start md:items-center gap-3">
-      <li><Link href="/" className="text-lg md:text-xl p-2 md:p-4 hover-effect">ホーム</Link></li>
-      <li><Link href="/activities" className="text-lg md:text-xl p-2 md:p-4 hover-effect">活動内容</Link></li>
-      <li><Link href="/result" className="text-lg md:text-xl p-2 md:p-4 hover-effect">大会の結果</Link></li>
-      <li><Link href="/album" className="text-lg md:text-xl p-2 md:p-4 hover-effect">アルバム</Link></li>
+      <li><Link href="/" className="text-lg  p-2 md:p-4 hover-effect">ホーム</Link></li>
+      <li><Link href="/activities" className="text-lg  p-2 md:p-4 hover-effect">活動内容</Link></li>
+      <li><Link href="/results" className="text-lg  p-2 md:p-4 hover-effect">試合結果</Link></li>
+      <li><Link href="/album" className="text-lg p-2 md:p-4 hover-effect">アルバム</Link></li>
       <li>
         <Button variant="secondary" className="mt-2 md:mt-0">
           <span className='mx-2'>お問い合わせ</span>
