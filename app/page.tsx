@@ -21,8 +21,9 @@ export default async function Home() {
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
           {allLists.map((list) => (
-            <Link key={list.id} href={`/${list.domain}/${list.id}`} >
-              <Card className="transition transform hover:shadow-lg hover:border-blue-500 hover:border-2 hover:scale-105" key={list.id}>
+            <Link key={list.id} href={`/${list.domain}/${list.id}`} passHref >
+              <a>
+              <Card className="transition transform hover:shadow-lg hover:border-blue-500 hover:border-2 hover:scale-105">
                 <CardHeader>
                   <CardTitle className='border-b border-blue-500 mb-1 pb-2'>{list.title}</CardTitle>
                   <div className='flex justify-between'>
@@ -33,6 +34,7 @@ export default async function Home() {
                 <CardContent>
                 </CardContent>
               </Card>
+              </a>
             </Link>
           ))}
         </div>
