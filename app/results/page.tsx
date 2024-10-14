@@ -8,7 +8,7 @@ export default async function StaticPage() {
     //     next: { revalidate: 10 },
     //   });
     const response=await fetch('https://miyadai-bad.vercel.app/api/works',{
-        next: { revalidate: 100 },
+        next: { revalidate: 10 },
     })
   const { contents } = await response.json();
 
