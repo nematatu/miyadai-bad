@@ -20,17 +20,24 @@ export default async function StaticDetailPage({
 }: {
     params: { postId: string };
 }) {
-    const post = await getDetail(domain,postId);
-
-    // ページの生成された時間を取得
-    if (!post) {
+    let result;
+    try {
+        result = await getDetail(domain, postId);
+    } catch (error) {
+        console.error('Error fetching detail:', error);
         notFound();
+        return;
+    }
+
+    if (!result) {
+        notFound();
+        return;
     }
 
     return (
         <div>
-            <h1 className="text-5xl font-bold flex justify-center m-6 pt-5">{post.title}</h1>
-            <div className="prose text-gray-700 mx-auto" dangerouslySetInnerHTML={{ __html: post.content }}
+            <h1 className="text-5xl font-bold flex justify-center m-6 pt-5">{result.title}</h1>
+            <div className="prose text-gray-700 mx-auto" dangerouslySetInnerHTML={{ __html: result.content }}
             />
         </div>
     );
