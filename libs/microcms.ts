@@ -32,6 +32,7 @@ export const client = createClient({
 // ブログ一覧を取得
 export const getList = async (domain: string) => {
     const endpoint = `https://miyadai-bad.microcms.io/api/v1/${domain}`;
+    console.log(endpoint)
     const response = await fetch(endpoint, {
         method: 'GET',
         headers: {
