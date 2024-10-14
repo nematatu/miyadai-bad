@@ -10,7 +10,7 @@ export default async function StaticPage() {
     const response=await fetch('https://miyadai-bad.vercel.app/api/works',{
         next: { revalidate: 100 },
     })
-  const { contents } = await getList(domain);
+  const { contents } = await response.json();
 
   if (!contents || contents.length === 0) {
     return <h1>No contents</h1>;
