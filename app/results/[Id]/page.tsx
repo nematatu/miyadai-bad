@@ -7,7 +7,7 @@ export async function generateStaticParams() {
 
     const paths = contents.map((post: any) => {
         return {
-            Id: post.id,
+            id: post.id,
         };
     });
 
@@ -15,13 +15,13 @@ export async function generateStaticParams() {
 }
 
 export default async function StaticDetailPage({
-    params: { Id },
+    params: { id },
 }: {
-    params: { Id: string };
+    params: { id: string };
 }) {
     let result;
     try {
-        result = await getDetail(domain, Id);
+        result = await getDetail(domain, id);
     } catch (error) {
         console.error('Error fetching detail:', error);
         notFound();

@@ -31,8 +31,6 @@ export default async function Home() {
                   </div>
                 </CardHeader>
                 <CardContent>
-                  {/* <div className="prose text-gray-700 mx-auto" dangerouslySetInnerHTML={{ __html: list.content }}
-            /> */}
                 </CardContent>
               </Card>
             </Link>
@@ -40,22 +38,6 @@ export default async function Home() {
         </div>
       </section >
 
-      {/* <section className="mb-12">
-        <h2 className="text-3xl font-semibold mb-6">部活の写真</h2>
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-          {[1, 2, 3, 4, 5, 6, 7, 8].map((i) => (
-            <div key={i} className="relative aspect-square">
-              <Image
-                src={`https://source.unsplash.com/random/300x300?sports&sig=${i}`}
-                alt={`部活の写真 ${i}`}
-                layout="fill"
-                objectFit="cover"
-                className="rounded-lg"
-              />
-            </div>
-          ))}
-        </div>
-      </section> */}
     </div >
   );
 }
