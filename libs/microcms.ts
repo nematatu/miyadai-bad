@@ -45,7 +45,6 @@ export const getList = async (domain: string) => {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
         const data = await response.json();
-        console.log('Fetched data:', data);
         return data;
     } catch (error) {
         console.error('Error fetching list:', error);
