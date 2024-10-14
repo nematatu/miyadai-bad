@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import { getDetail, getList } from "@/libs/microcms";
 
 const domain = 'results'
+export const revalidate=10;
 export async function generateStaticParams() {
     const contents  = await getList(domain);
 

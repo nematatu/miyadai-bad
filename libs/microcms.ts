@@ -31,7 +31,6 @@ export const getList = async (domain: string) => {
     console.log(process.env.MICROCMS_SERVICE_DOMAIN);
     console.log(process.env.MICROCMS_API_KEY);
     const endpoint = `https://${process.env.MICROCMS_SERVICE_DOMAIN}.microcms.io/api/v1/${domain}`;
-    console.log(`Fetching from endpoint: ${endpoint}`);
     try {
         const response = await fetch(endpoint, {
             method: 'GET',
@@ -65,6 +64,7 @@ export const getAllLists = async () => {
         AllLists.sort((a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime());
 
         const top6Lists=AllLists.slice(0,6);
+        console.log(top6Lists);
         return top6Lists;
     } catch (error) {
         console.error('Error getting all lists:', error);
@@ -87,13 +87,19 @@ export const getDetail = async (domain: string, contentId: string) => {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
         const data = await response.json();
-        console.log('Fetched detail:', data);
         return data;
     } catch (error) {
         console.error('Error fetching detail:', error);
         throw error;
     }
 };
+
+export const scheduleJson=async()=>{
+    const domain='columns'
+    const result=await getList(domain);
+    const json = Array.isArray(result) ? result.find(item => item.title === '部活スケジュール').content : null;
+    // console.log(json);
+}
 
 // export const getList = async (domain:string,queries?: MicroCMSQueries) => {
 //     const listData = await client.getList<Blog>({

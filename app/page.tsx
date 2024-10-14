@@ -4,11 +4,10 @@ import { Box, Badge } from '@radix-ui/themes';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import Carousel from '@/components/Carousel';
 import Link from 'next/link';
-import { getAllLists } from '@/libs/microcms';
+import { getAllLists,scheduleJson } from '@/libs/microcms';
 
 export default async function Home() {
   const allLists = await getAllLists();
-
   return (
     <div className="container mx-auto px-4 py-8">
       {<Carousel />}
@@ -23,15 +22,20 @@ export default async function Home() {
           {allLists.map((list) => (
             <Link key={list.id} href={`/${list.domain}/${list.id}`} >
               
-              <Card className="transition transform hover:shadow-lg hover:border-blue-500 hover:border-2 hover:scale-105">
+              <Card className="transition transform hover:shadow-lg hover:border-blue-500 hover:border-2 ">
                 <CardHeader>
                   <CardTitle className='border-b border-blue-500 mb-1 pb-2'>{list.title}</CardTitle>
                   <div className='flex justify-between'>
                     <CardDescription>{list.publishedAt.split('T')[0]}</CardDescription>
-                    <Badge variant='solid' color="indigo">{list.domainJ}</Badge>
+                    <Badge variant='solid' color={
+                      list.domain==='results'?'indigo':'orange'
+                    }>
+                      {list.domainJ}
+                    </Badge>
                   </div>
                 </CardHeader>
                 <CardContent>
+                  <Image style={{objectFit:'cover',width:'500px',height:'200px' }} src={list.eyecatch?.url|| '/shuttle.jpeg'} alt={list.title} width={500} height={300} />
                 </CardContent>
               </Card>
               
