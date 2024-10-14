@@ -5,9 +5,9 @@ const domain = 'results'
 export async function generateStaticParams() {
     const { contents } = await getList(domain);
 
-    const paths = contents.map((result: any) => {
+    const paths = contents.map((post: any) => {
         return {
-            Id: result.id,
+            Id: post.id,
         };
     });
 

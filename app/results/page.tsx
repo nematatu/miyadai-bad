@@ -18,7 +18,7 @@ export default async function StaticPage() {
         {contents.map((post:any) => {
           return (
             <li className="flex jusitify-center" key={post.id}>
-              <Link href={`/results/${post.id}`}>{post.title}</Link>
+              <Link href={`/${domain}/${post.id}`}>{post.title}</Link>
               <p className="ml-3">{post.publishedAt.split('T')[0]}</p>
             </li>
           );
