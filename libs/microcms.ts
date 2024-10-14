@@ -1,13 +1,10 @@
-import { get } from "http";
 import { createClient } from "microcms-js-sdk";
 import type {
     MicroCMSQueries,
     MicroCMSImage,
     MicroCMSDate,
 } from "microcms-js-sdk";
-// Removed incorrect import
 
-//ブログの型定義
 export type Blog = {
     id: string;
     title: string;
@@ -23,59 +20,69 @@ if (!process.env.MICROCMS_API_KEY) {
     throw new Error("MICROCMS_API_KEY is required");
 }
 
-// API取得用のクライアントを作成
 export const client = createClient({
     serviceDomain: process.env.MICROCMS_SERVICE_DOMAIN,
     apiKey: process.env.MICROCMS_API_KEY,
 });
 
-// ブログ一覧を取得
 export const getList = async (domain: string) => {
-    const endpoint = `https://miyadai-bad.microcms.io/api/v1/${domain}`;
-    console.log(endpoint)
-    const response = await fetch(endpoint, {
-        method: 'GET',
-        headers: {
-            'X-MICROCMS-API-KEY': process.env.MICROCMS_API_KEY || '',
-            'Content-Type': 'application/json'
-        },
-        cache: 'no-store'
+    const endpoint = `https://${process.env.MICROCMS_SERVICE_DOMAIN}.microcms.io/api/v1/${domain}`;
+    console.log(`Fetching from endpoint: ${endpoint}`);
+    try {
+        const response = await fetch(endpoint, {
+            method: 'GET',
+            headers: {
+                'X-MICROCMS-API-KEY': process.env.MICROCMS_API_KEY || '',
+                'Content-Type': 'application/json'
+            },
+            cache: 'no-store'
+        });
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const data = await response.json();
+        console.log('Fetched data:', data);
+        return data;
+    } catch (error) {
+        console.error('Error fetching list:', error);
+        throw error;
     }
-    )
-    const data = await response.json()
-    return data
 }
 
 export const getAllLists = async () => {
-    const columnsData = await getList('columns')
-
-    const resultsData = await getList('results');
-    const AllLists = [...columnsData.contents, ...resultsData.contents]
-    AllLists.sort((a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime())
-
-    console.log("--------関数内--------")
-    console.log(AllLists)
-    console.log("--------関数内--------")
-
-    return AllLists;
+    try {
+        const columnsData = await getList('columns');
+        const resultsData = await getList('results');
+        const AllLists = [...columnsData.contents, ...resultsData.contents];
+        AllLists.sort((a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime());
+        console.log("All lists:", AllLists);
+        return AllLists;
+    } catch (error) {
+        console.error('Error getting all lists:', error);
+        throw error;
+    }
 }
 
-// ブログの詳細を取得
-export const getDetail = async (
-    domain: string,
-    contentId: string,
-) => {
-    const endpoint = `https://miyadai-bad.microcms.io/api/v1/${domain}/${contentId}`;
-    const response = await fetch(endpoint, {
-        method: 'GET',
-        headers: {
-            'X-MICROCMS-API-KEY': process.env.MICROCMS_API_KEY || '',
-            'Content-Type': 'application/json'
-        },
-        cache: 'no-store'
+export const getDetail = async (domain: string, contentId: string) => {
+    const endpoint = `https://${process.env.MICROCMS_SERVICE_DOMAIN}.microcms.io/api/v1/${domain}/${contentId}`;
+    console.log(`Fetching detail from endpoint: ${endpoint}`);
+    try {
+        const response = await fetch(endpoint, {
+            method: 'GET',
+            headers: {
+                'X-MICROCMS-API-KEY': process.env.MICROCMS_API_KEY || '',
+                'Content-Type': 'application/json'
+            },
+            cache: 'no-store'
+        });
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const data = await response.json();
+        console.log('Fetched detail:', data);
+        return data;
+    } catch (error) {
+        console.error('Error fetching detail:', error);
+        throw error;
     }
-    )
-    const data = await response.json()
-    console.log(data)
-    return data
 };
