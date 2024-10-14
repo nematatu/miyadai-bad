@@ -1,7 +1,9 @@
 import Link from "next/link";
 import { getList } from "@/libs/microcms";
 import { createClient } from "microcms-js-sdk";
+
 const domain = 'columns'
+const revalidate=10;
 export default async function StaticPage() {
   const { contents } = await getList(domain);
 
